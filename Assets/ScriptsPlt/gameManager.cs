@@ -11,13 +11,13 @@ public class gameManager : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            RestartL();
+            RespawnPlayer();
         }
     }
-    void RestartL()
+    void RespawnPlayer()
     {
-       // Puedes hacer que el jugador reaparezca o simplemente reiniciar la escena
-       //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        player.transform.position = respawnPoint.position;
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     

@@ -9,8 +9,7 @@ public class EndLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("¡Nivel completado!");
-            // Aquí puedes cargar la siguiente escena, o mostrar un mensaje de victoria
-            // Ejemplo: SceneManager.LoadScene("NextLevelScene");
+            
         }
     }
 }

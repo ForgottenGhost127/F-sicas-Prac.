@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float mHorizontal = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(mHorizontal * speed, rb.velocity.y, 0);
+        float mVertical = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(mHorizontal, rb.velocity.y, mVertical) * speed;
         rb.velocity = movement;
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
