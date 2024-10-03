@@ -10,6 +10,7 @@ TagManager:
   - Camara
   - PlatVanish
   - GM
+  - Death
   layers:
   - Default
   - TransparentFX
