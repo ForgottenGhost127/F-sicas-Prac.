@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 6f;
+    private float velY = 0;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -13,18 +14,21 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        isGrounded = true;
     }
 
     void Update()
     {
         float mHorizontal = Input.GetAxis("Horizontal");
         float mVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(mHorizontal, rb.velocity.y, mVertical) * speed;
-        rb.velocity = movement;
+        Vector3 movement = new Vector3(mHorizontal, velY, mVertical) * speed;
+        rb.AddForce(movement);
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            //rb.velocity = new Vector3(0, jumpForce, 0);
+            //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            velY = jumpForce;
             isGrounded = false;
         }
     }
