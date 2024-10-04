@@ -9,10 +9,11 @@ public class PlayerContr : MonoBehaviour
     public float rayDistance = 5f;
 
     private Rigidbody rb;
-
+    private float startTime;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        startTime = Time.time;
     }
     
     void Update()
@@ -47,10 +48,9 @@ public class PlayerContr : MonoBehaviour
         }
 
     }
+    public float GetElapsedTime()
+    {
+        return Time.time - startTime;
+    }
 
-
-    //Terminar el laberinto: Walls 1,2 y 3 son las indestructibles. Wall 4 serán las walls que podremos destruir con el uso de raycast.
-
-    //Meta y Trigger: Crear un objeto al final del laberinto con un collider con isTrigger activado para que, cuando el player lo toque, se muestre el mensaje de victoria.
-    //Contador de tiempo y Efectos visuales: implementar un contador de tiempo y efectos cuando el jugador destruye obstáculos.
 }
