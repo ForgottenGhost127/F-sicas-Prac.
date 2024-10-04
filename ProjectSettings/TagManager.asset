@@ -11,6 +11,7 @@ TagManager:
   - PlatVanish
   - GM
   - Death
+  - Obstacle
   layers:
   - Default
   - TransparentFX
